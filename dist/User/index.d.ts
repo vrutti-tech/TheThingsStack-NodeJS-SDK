@@ -1,3 +1,8 @@
+/**
+ * @file index.js is the root file for this example app
+ * @author Brad Traversy
+ * @see test <a href="https://traversymedia.com">Traversy Media</a>
+ */
 import { SetConfig } from '../index';
 import { Config } from '../Interfaces/Config/config.interface';
 import { CreateApplication, CreateApplicationUserPayload, GetApplicationList, CreateAPIKey, CreateAPIKeyPayload, GetAPIKeyListUserPayload, GetAPIKeyList, GetAPIKeyInfoUserPayload, GetAPIKeyInfo, UpdateAPIKeyUserPayload, UpdateAPIKey, CreateGatewayUserPayload, CreateGateway, GetGatewayList } from '../Interfaces/User/user.interface';
