@@ -17,6 +17,7 @@
   },
   "opts": {
     "template": "node_modules/clean-jsdoc-theme",
+    "readme": "./readme/readme.md",
     "recurse": true,
     "destination": "./docs/",
     "encoding": "utf8",
