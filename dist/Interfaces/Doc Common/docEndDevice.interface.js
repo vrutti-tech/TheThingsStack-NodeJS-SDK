@@ -298,8 +298,8 @@
  * @property {number} port - The port of the downlink queue.
  * @property {string} username - The username of the downlink queue.
  * @property {callBackFunction} callback_downlink_event - The callback downlink event of the downlink queue.
- * @property {callBackFunction} callback_subscribe_disconnect - The callback subscribe disconnect of the downlink queue.
- * @property {callBackFunction} callback_subscribe_error - The callback subscribe error of the downlink queue.
+//  * @property {callBackFunction} callback_subscribe_disconnect - The callback subscribe disconnect of the downlink queue.
+//  * @property {callBackFunction} callback_subscribe_error - The callback subscribe error of the downlink queue.
  */
 /**
  * @typedef {Object} Input-SubscribeUpLinkEvent
@@ -308,6 +308,6 @@
  * @property {number} port - The port of the downlink queue.
  * @property {string} username - The username of the downlink queue.
  * @property {callBackFunction} callback_downlink_event - The callback downlink event of the downlink queue.
- * @property {callBackFunction} callback_subscribe_disconnect - The callback subscribe disconnect of the downlink queue.
- * @property {callBackFunction} callback_subscribe_error - The callback subscribe error of the downlink queue.
+//  * @property {callBackFunction} callback_subscribe_disconnect - The callback subscribe disconnect of the downlink queue.
+//  * @property {callBackFunction} callback_subscribe_error - The callback subscribe error of the downlink queue.
  */

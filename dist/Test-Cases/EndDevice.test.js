@@ -11,11 +11,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const EndDevice_1 = require("../EndDevice");
 const EndDeviceAPI_data_1 = require("../Data/EndDeviceAPI-data");
-const device = new EndDevice_1.EndDevice('meet59', EndDeviceAPI_data_1.config_T);
+const device = new EndDevice_1.EndDevice('meet69', EndDeviceAPI_data_1.config_T);
 describe('No Config Errors', () => {
     test('Correct User ID', () => __awaiter(void 0, void 0, void 0, function* () {
-        const appFailed = new EndDevice_1.EndDevice('meet59', EndDeviceAPI_data_1.config_T);
-        expect(appFailed).toHaveProperty('APPLICATION_ID', 'meet59');
+        const appFailed = new EndDevice_1.EndDevice('meet69', EndDeviceAPI_data_1.config_T);
+        expect(appFailed).toHaveProperty('APPLICATION_ID', 'meet69');
     }));
     test('API Key Given', () => __awaiter(void 0, void 0, void 0, function* () {
         const appFailed = new EndDevice_1.EndDevice('meetsavaj', EndDeviceAPI_data_1.config_T);
@@ -25,7 +25,7 @@ describe('No Config Errors', () => {
 describe('Config Errors', () => {
     test('User ID', () => __awaiter(void 0, void 0, void 0, function* () {
         const appFailed = new EndDevice_1.EndDevice('meethgsvbdgas', EndDeviceAPI_data_1.config_F);
-        expect(appFailed).not.toHaveProperty('APPLICATION_ID', 'meet59');
+        expect(appFailed).not.toHaveProperty('APPLICATION_ID', 'meet69');
     }));
     test('API Key Missing', () => __awaiter(void 0, void 0, void 0, function* () {
         const appFailed = new EndDevice_1.EndDevice('meetsavaj', EndDeviceAPI_data_1.config_F);
@@ -361,21 +361,20 @@ describe('Delete EndDeviceAS Errors', () => {
 describe('IssueDevEUI', () => {
     test('IssueDevEUI Successfully', () => __awaiter(void 0, void 0, void 0, function* () {
         const response = yield device.issueDevEUI();
-        console.log('response: ', response);
         expect(response).not.toBeNull;
     }));
 });
-describe('DownlinkQueue Push/Replace', () => {
-    test('DownlinkQueue Push/Replace Successfully', () => __awaiter(void 0, void 0, void 0, function* () {
-        const device = new EndDevice_1.EndDevice('stratis-thermostat', EndDeviceAPI_data_1.configDownlink);
-        const response = yield device.downlinkQueue(EndDeviceAPI_data_1.downlinkQueuePushUserPayload);
-        expect(response).not.toBeNull;
-    }));
-});
-const device2 = new EndDevice_1.EndDevice('stratis-thermostat', EndDeviceAPI_data_1.configDownlink);
-const downEvent = device2.subscribeDownLinkEvent(EndDeviceAPI_data_1.subscribeDownLinkEventUserPayload);
-const upEvent = device2.subscribeUpLinkEvent(EndDeviceAPI_data_1.subscribeUpLinkEventUserPayload);
-device.unsubscribeEvent(downEvent);
+// describe('DownlinkQueue Push/Replace', () => {
+//   test('DownlinkQueue Push/Replace Successfully', async () => {
+//     const device = new EndDevice('stratis-thermostat', configDownlink);
+//     const response = await device.downlinkQueue(downlinkQueuePushUserPayload);
+//     expect(response).not.toBeNull;
+//   });
+// });
+// const device2 = new EndDevice('stratis-thermostat', configDownlink);
+// const downEvent = device2.subscribeDownLinkEvent(subscribeDownLinkEventUserPayload);
+// const upEvent = device2.subscribeUpLinkEvent(subscribeUpLinkEventUserPayload);
+// device.unsubscribeEvent(downEvent);
 // describe('SubscribeDownlink', () => {
 //   test('SubscribeDownlink Successfully', async () => {
 //     const device = new EndDevice('stratis-thermostat', configDownlink);

@@ -28,7 +28,7 @@ export const createEndDeviceISUserPayload = {
       dev_eui: '70B3D57ED005B59E',
       device_id: 'eui-70b3d57ed005b59e',
       application_ids: {
-        application_id: 'meet59',
+        application_id: 'meet69',
       },
     },
     version_ids: {
@@ -51,7 +51,7 @@ export const setEndDeviceJSUserPayload = {
       dev_eui: '70B3D57ED005B59E',
       device_id: 'eui-70b3d57ed005b59e',
       application_ids: {
-        application_id: 'meet59',
+        application_id: 'meet69',
       },
     },
     network_server_address: 'nam1.cloud.thethings.network',
@@ -76,6 +76,7 @@ export const setEndDeviceNSUserPayload = {
     frequency_plan_id: 'AS_920_923_TTN_JP_3_LAND_MOBILE',
     supports_join: true,
     supports_class_c: true,
+    multicast: true,
     lorawan_version: 'MAC_V1_0_3',
     lorawan_phy_version: 'PHY_V1_0_3_REV_A',
     mac_settings: {
@@ -87,7 +88,7 @@ export const setEndDeviceNSUserPayload = {
       dev_eui: '70B3D57ED005B59E',
       device_id: 'eui-70b3d57ed005b59e',
       application_ids: {
-        application_id: 'meet59',
+        application_id: 'meet69',
       },
     },
   },
@@ -111,7 +112,7 @@ export const setEndDeviceASUserPayload = {
       dev_eui: '70B3D57ED005B59E',
       device_id: 'eui-70b3d57ed005b59e',
       application_ids: {
-        application_id: 'meet59',
+        application_id: 'meet69',
       },
     },
   },
@@ -149,7 +150,7 @@ export const deleteEndDeviceNSUserPayload = { device_id: 'eui-70b3d57ed005b59e' 
 export const deleteEndDeviceASUserPayload = { device_id: 'eui-70b3d57ed005b59e' };
 
 export const configDownlink = {
-  IDENTITY_SERVER: 'https://eu1.nam1.cloud.thethings.industries/api/v3',
+  IDENTITY_SERVER: 'https://oxit.eu1.cloud.thethings.industries/api/v3',
   NETWORK_SERVER: 'https://oxit.nam1.cloud.thethings.industries/api/v3/ns',
   APPLICATION_SERVER: 'https://oxit.nam1.cloud.thethings.industries/api/v3/as',
   JOIN_SERVER: 'https://oxit.nam1.cloud.thethings.industries/api/v3/js',

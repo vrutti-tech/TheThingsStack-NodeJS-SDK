@@ -13,7 +13,7 @@ const index_1 = require("../Application/index");
 const index_2 = require("../Organization/index");
 const index_3 = require("../User/index");
 const AppAPI_data_1 = require("../Data/AppAPI-data");
-const app = new index_1.Application('meet59', AppAPI_data_1.config_T);
+const app = new index_1.Application('meet69', AppAPI_data_1.config_T);
 const user = new index_3.User('meetsavaj', AppAPI_data_1.config_T);
 const org = new index_2.Organization('organ1', AppAPI_data_1.config_T);
 describe('No Config Errors', () => {
@@ -110,14 +110,14 @@ describe('Update Application', () => {
     test('Application Updated Successfully', () => __awaiter(void 0, void 0, void 0, function* () {
         var _a;
         const response = yield app.updateApplication(AppAPI_data_1.updateApplicationPayload_T);
-        expect((_a = response.ids) === null || _a === void 0 ? void 0 : _a.application_id).toBe('meet59');
+        expect((_a = response.ids) === null || _a === void 0 ? void 0 : _a.application_id).toBe('meet69');
         expect(response.name).toBe(AppAPI_data_1.updateApplicationPayload_T.name);
         expect(response.attributes).toEqual(AppAPI_data_1.updateApplicationPayload_T.attributes);
     }));
 });
 describe('Delete Application', () => {
     test('Application Deleted Successfully', () => __awaiter(void 0, void 0, void 0, function* () {
-        const app = new index_1.Application('meet5', AppAPI_data_1.config_T);
+        const app = new index_1.Application('meet69', AppAPI_data_1.config_T);
         const response = yield app.deleteApplication();
         expect(response).not.toBeNull;
     }));
@@ -135,7 +135,7 @@ describe('Delete Application Errors', () => {
     }));
     test('Application Has Devices', () => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const app = new index_1.Application('meet59', AppAPI_data_1.config_T);
+            const app = new index_1.Application('meet68', AppAPI_data_1.config_T);
             const response = yield app.deleteApplication();
             expect(response).toBeUndefined();
         }
@@ -146,7 +146,7 @@ describe('Delete Application Errors', () => {
 });
 describe('Restore Application', () => {
     test('Application Restored Successfully', () => __awaiter(void 0, void 0, void 0, function* () {
-        const app = new index_1.Application('meet5', AppAPI_data_1.config_T);
+        const app = new index_1.Application('meet69', AppAPI_data_1.config_T);
         const response = yield app.restoreApplication();
         expect(response).not.toBeNull;
     }));
@@ -154,7 +154,7 @@ describe('Restore Application', () => {
 describe('Restore Application Errors', () => {
     test('Application ID Already Present', () => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const app = new index_1.Application('meet59', AppAPI_data_1.config_T);
+            const app = new index_1.Application('meet69', AppAPI_data_1.config_T);
             yield app.restoreApplication();
         }
         catch (error) {
@@ -173,7 +173,7 @@ describe('Restore Application Errors', () => {
 });
 describe('Purge Application', () => {
     test('Purge Application Successfully', () => __awaiter(void 0, void 0, void 0, function* () {
-        const app = new index_1.Application('meet59', AppAPI_data_1.config_T);
+        const app = new index_1.Application('meet69', AppAPI_data_1.config_T);
         const response = yield app.purgeApplication();
         expect(response).not.toBeNull;
     }));
@@ -181,7 +181,7 @@ describe('Purge Application', () => {
 describe('Purge Application Errors', () => {
     test('Applications May Only Be Purged By Admins', () => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const app = new index_1.Application('meet59', AppAPI_data_1.config_T);
+            const app = new index_1.Application('meet69', AppAPI_data_1.config_T);
             yield app.purgeApplication();
         }
         catch (error) {
@@ -547,7 +547,7 @@ describe('Get Collaborator (Org) Errors', () => {
 });
 describe('Set Collaborator (App-User)', () => {
     test('Set Collaborator Successfully', () => __awaiter(void 0, void 0, void 0, function* () {
-        const app = new index_1.Application('meet50', AppAPI_data_1.config_T);
+        const app = new index_1.Application('meet69', AppAPI_data_1.config_T);
         const response = yield app.setCollaboratorOfUser(AppAPI_data_1.setCollaboratorPayloadForApplication_User_T);
         expect(response).toBeDefined();
     }));
@@ -575,7 +575,7 @@ describe('Set Collaborator Errors (App-User)', () => {
 });
 describe('Set Collaborator (App-Org)', () => {
     test('Set Collaborator Successfully', () => __awaiter(void 0, void 0, void 0, function* () {
-        const app = new index_1.Application('meet50', AppAPI_data_1.config_T);
+        const app = new index_1.Application('meet69', AppAPI_data_1.config_T);
         const response = yield app.setCollaboratorOfOrg(AppAPI_data_1.setCollaboratorPayloadForApplication_Org_T);
         expect(response).toBeDefined();
     }));

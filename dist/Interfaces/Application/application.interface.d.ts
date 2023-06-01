@@ -38,7 +38,7 @@ export interface GetApplication {
     end_device_limit?: null;
 }
 export interface GetApplicationList {
-    application: {
+    applications: {
         ids: {
             application_id: string;
         };

@@ -39,13 +39,15 @@ class EndDevice extends index_1.SetConfig {
      */
     createEndDeviceIS(payload) {
         var _a, _b, _c, _d, _e;
-        const paths = (0, utils_1.getAllKeys)(payload);
+        const recpaths = (0, utils_1.getAllKeys)(payload);
+        const paths = recpaths.toString().replaceAll('end_device.', '').split(',');
         const apiPayload = {
             end_device: {
                 ids: {
                     join_eui: payload.end_device.ids.join_eui,
                     dev_eui: payload.end_device.ids.dev_eui,
                     device_id: payload.end_device.ids.device_id,
+                    dev_addr: payload.end_device.ids.dev_addr,
                     application_ids: {
                         application_id: this.APPLICATION_ID,
                     },
@@ -86,7 +88,8 @@ class EndDevice extends index_1.SetConfig {
      * The response from the API. ----> {@link https://www.thethingsindustries.com/docs/reference/api/end_device/#message:EndDevice SetEndDeviceJS}
      */
     setEndDeviceJS(payload) {
-        const paths = (0, utils_1.getAllKeys)(payload);
+        const recpaths = (0, utils_1.getAllKeys)(payload);
+        const paths = recpaths.toString().replaceAll('end_device.', '').split(',');
         const apiPayload = {
             end_device: {
                 ids: {
@@ -130,8 +133,11 @@ class EndDevice extends index_1.SetConfig {
      * The response from the API. ----> {@link https://www.thethingsindustries.com/docs/reference/api/end_device/#message:EndDevice SetEndDeviceNS}
      */
     setEndDeviceNS(payload) {
-        var _a, _b, _c, _d, _e, _f, _g;
-        const paths = (0, utils_1.getAllKeys)(payload);
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        const recpaths = (0, utils_1.getAllKeys)(payload);
+        const tempPaths = recpaths.toString().replaceAll('end_device.', '').split(',');
+        const items = ['ids.dev_addr'];
+        const paths = tempPaths.filter((item) => !items.includes(item));
         const apiPayload = {
             end_device: {
                 version_ids: {
@@ -144,18 +150,28 @@ class EndDevice extends index_1.SetConfig {
                 frequency_plan_id: payload.end_device.frequency_plan_id,
                 supports_join: payload.end_device.supports_join,
                 supports_class_c: payload.end_device.supports_class_c,
+                multicast: (_f = payload.end_device) === null || _f === void 0 ? void 0 : _f.multicast,
                 lorawan_version: payload.end_device.lorawan_version,
                 lorawan_phy_version: payload.end_device.lorawan_phy_version,
                 mac_settings: {
-                    class_c_timeout: (_f = payload.end_device.mac_settings) === null || _f === void 0 ? void 0 : _f.class_c_timeout,
-                    supports_32_bit_f_cnt: (_g = payload.end_device.mac_settings) === null || _g === void 0 ? void 0 : _g.supports_32_bit_f_cnt,
+                    class_c_timeout: (_g = payload.end_device.mac_settings) === null || _g === void 0 ? void 0 : _g.class_c_timeout,
+                    supports_32_bit_f_cnt: (_h = payload.end_device.mac_settings) === null || _h === void 0 ? void 0 : _h.supports_32_bit_f_cnt,
                 },
                 ids: {
                     join_eui: payload.end_device.ids.join_eui,
                     dev_eui: payload.end_device.ids.dev_eui,
                     device_id: payload.end_device.ids.device_id,
+                    dev_addr: payload.end_device.ids.dev_addr,
                     application_ids: {
                         application_id: this.APPLICATION_ID,
+                    },
+                },
+                session: {
+                    dev_addr: (_j = payload.end_device.session) === null || _j === void 0 ? void 0 : _j.dev_addr,
+                    keys: {
+                        f_nwk_s_int_key: {
+                            key: (_m = (_l = (_k = payload.end_device.session) === null || _k === void 0 ? void 0 : _k.keys) === null || _l === void 0 ? void 0 : _l.f_nwk_s_int_key) === null || _m === void 0 ? void 0 : _m.key,
+                        },
                     },
                 },
             },
@@ -184,8 +200,11 @@ class EndDevice extends index_1.SetConfig {
      * The response from the API. ----> {@link https://www.thethingsindustries.com/docs/reference/api/end_device/#message:EndDevice SetEndDeviceAS}
      */
     setEndDeviceAS(payload) {
-        var _a, _b, _c, _d, _e, _f, _g;
-        const paths = (0, utils_1.getAllKeys)(payload);
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+        const recpaths = (0, utils_1.getAllKeys)(payload);
+        const tempPaths = recpaths.toString().replaceAll('end_device.', '').split(',');
+        const items = ['ids.dev_addr'];
+        const paths = tempPaths.filter((item) => !items.includes(item));
         const apiPayload = {
             end_device: {
                 version_ids: {
@@ -203,8 +222,17 @@ class EndDevice extends index_1.SetConfig {
                     join_eui: payload.end_device.ids.join_eui,
                     dev_eui: payload.end_device.ids.dev_eui,
                     device_id: payload.end_device.ids.device_id,
+                    dev_addr: payload.end_device.ids.dev_addr,
                     application_ids: {
                         application_id: this.APPLICATION_ID,
+                    },
+                },
+                session: {
+                    dev_addr: (_h = payload.end_device.session) === null || _h === void 0 ? void 0 : _h.dev_addr,
+                    keys: {
+                        app_s_key: {
+                            key: (_l = (_k = (_j = payload.end_device.session) === null || _j === void 0 ? void 0 : _j.keys) === null || _k === void 0 ? void 0 : _k.app_s_key) === null || _l === void 0 ? void 0 : _l.key,
+                        },
                     },
                 },
             },

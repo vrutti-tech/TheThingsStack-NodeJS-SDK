@@ -38,6 +38,12 @@ export declare const getApplicationPayload_T: {
 export declare const getApplicationPayload_F: {
     application_id: string;
 };
+export declare const getApplicationListPayloadForUser: {
+    user_id: string;
+};
+export declare const getApplicationListPayloadForOrg: {
+    organization_id: string;
+};
 export declare const updateApplicationPayload_T: {
     name: string;
     description: string;
@@ -53,6 +59,18 @@ export declare const updateApplicationPayload_F: {
         hello: string;
         hello2: string;
     };
+};
+export declare const deleteApplicationPayload: {
+    application_id: string;
+};
+export declare const restoreApplicationPayload: {
+    application_id: string;
+};
+export declare const purgeApplicationPayload: {
+    application_id: string;
+};
+export declare const getApplicationRightUserPayload: {
+    application_id: string;
 };
 export declare const createAPIKeyPayloadForApplication: {
     name: string;

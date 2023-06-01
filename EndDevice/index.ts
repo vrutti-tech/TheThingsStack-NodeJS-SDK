@@ -73,7 +73,8 @@ export class EndDevice extends SetConfig {
    * The response from the API. ----> {@link https://www.thethingsindustries.com/docs/reference/api/end_device/#message:EndDevice CreateEndDeviceIS}
    */
   createEndDeviceIS(payload: CreateEndDeviceISUserPayload): Promise<CreateEndDeviceIS> {
-    const paths = getAllKeys(payload);
+    const recpaths = getAllKeys(payload);
+    const paths = recpaths.toString().replaceAll('end_device.', '').split(',');
 
     const apiPayload: CreateEndDeviceISPayload = {
       end_device: {
@@ -81,6 +82,7 @@ export class EndDevice extends SetConfig {
           join_eui: payload.end_device.ids.join_eui,
           dev_eui: payload.end_device.ids.dev_eui,
           device_id: payload.end_device.ids.device_id,
+          dev_addr: payload.end_device.ids.dev_addr,
           application_ids: {
             application_id: this.APPLICATION_ID,
           },
@@ -123,7 +125,8 @@ export class EndDevice extends SetConfig {
    * The response from the API. ----> {@link https://www.thethingsindustries.com/docs/reference/api/end_device/#message:EndDevice SetEndDeviceJS}
    */
   setEndDeviceJS(payload: SetEndDeviceJSUserPayload): Promise<SetEndDeviceJS> {
-    const paths = getAllKeys(payload);
+    const recpaths = getAllKeys(payload);
+    const paths = recpaths.toString().replaceAll('end_device.', '').split(',');
 
     const apiPayload: SetEndDeviceJSPayload = {
       end_device: {
@@ -170,7 +173,10 @@ export class EndDevice extends SetConfig {
    * The response from the API. ----> {@link https://www.thethingsindustries.com/docs/reference/api/end_device/#message:EndDevice SetEndDeviceNS}
    */
   setEndDeviceNS(payload: SetEndDeviceNSUserPayload): Promise<SetEndDeviceNS> {
-    const paths = getAllKeys(payload);
+    const recpaths = getAllKeys(payload);
+    const tempPaths = recpaths.toString().replaceAll('end_device.', '').split(',');
+    const items = ['ids.dev_addr'];
+    const paths = tempPaths.filter((item) => !items.includes(item));
 
     const apiPayload: SetEndDeviceNSPayload = {
       end_device: {
@@ -184,6 +190,7 @@ export class EndDevice extends SetConfig {
         frequency_plan_id: payload.end_device.frequency_plan_id,
         supports_join: payload.end_device.supports_join,
         supports_class_c: payload.end_device.supports_class_c,
+        multicast: payload.end_device?.multicast,
         lorawan_version: payload.end_device.lorawan_version,
         lorawan_phy_version: payload.end_device.lorawan_phy_version,
         mac_settings: {
@@ -194,8 +201,17 @@ export class EndDevice extends SetConfig {
           join_eui: payload.end_device.ids.join_eui,
           dev_eui: payload.end_device.ids.dev_eui,
           device_id: payload.end_device.ids.device_id,
+          dev_addr: payload.end_device.ids.dev_addr,
           application_ids: {
             application_id: this.APPLICATION_ID,
+          },
+        },
+        session: {
+          dev_addr: payload.end_device.session?.dev_addr,
+          keys: {
+            f_nwk_s_int_key: {
+              key: payload.end_device.session?.keys?.f_nwk_s_int_key?.key,
+            },
           },
         },
       },
@@ -226,7 +242,10 @@ export class EndDevice extends SetConfig {
    * The response from the API. ----> {@link https://www.thethingsindustries.com/docs/reference/api/end_device/#message:EndDevice SetEndDeviceAS}
    */
   setEndDeviceAS(payload: SetEndDeviceASUserPayload): Promise<SetEndDeviceAS> {
-    const paths = getAllKeys(payload);
+    const recpaths = getAllKeys(payload);
+    const tempPaths = recpaths.toString().replaceAll('end_device.', '').split(',');
+    const items = ['ids.dev_addr'];
+    const paths = tempPaths.filter((item) => !items.includes(item));
 
     const apiPayload: SetEndDeviceASPayload = {
       end_device: {
@@ -245,8 +264,17 @@ export class EndDevice extends SetConfig {
           join_eui: payload.end_device.ids.join_eui,
           dev_eui: payload.end_device.ids.dev_eui,
           device_id: payload.end_device.ids.device_id,
+          dev_addr: payload.end_device.ids.dev_addr,
           application_ids: {
             application_id: this.APPLICATION_ID,
+          },
+        },
+        session: {
+          dev_addr: payload.end_device.session?.dev_addr,
+          keys: {
+            app_s_key: {
+              key: payload.end_device.session?.keys?.app_s_key?.key,
+            },
           },
         },
       },

@@ -1,9 +1,4 @@
 "use strict";
-/**
- * @file index.js is the root file for this example app
- * @author Brad Traversy
- * @see test <a href="https://traversymedia.com">Traversy Media</a>
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const index_1 = require("../index");
